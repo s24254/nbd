@@ -1,0 +1,122 @@
+﻿[
+  {
+    "hugoMoviesDirectors": {
+      "identity": 108,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "born": 1965,
+        "name": "Tom Tykwer"
+      }
+    }
+  },
+  {
+    "hugoMoviesDirectors": {
+      "identity": 6,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "born": 1965,
+        "name": "Lana Wachowski"
+      }
+    }
+  },
+  {
+    "hugoMoviesDirectors": {
+      "identity": 5,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "born": 1967,
+        "name": "Lilly Wachowski"
+      }
+    }
+  },
+  {
+    "hugoMoviesDirectors": {
+      "identity": 25,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "born": 1967,
+        "name": "James Marshall"
+      }
+    }
+  },
+  {
+    "hugoMoviesDirectors": {
+      "identity": 6,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "born": 1965,
+        "name": "Lana Wachowski"
+      }
+    }
+  },
+  {
+    "hugoMoviesDirectors": {
+      "identity": 5,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "born": 1967,
+        "name": "Lilly Wachowski"
+      }
+    }
+  },
+  {
+    "hugoMoviesDirectors": {
+      "identity": 6,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "born": 1965,
+        "name": "Lana Wachowski"
+      }
+    }
+  },
+  {
+    "hugoMoviesDirectors": {
+      "identity": 5,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "born": 1967,
+        "name": "Lilly Wachowski"
+      }
+    }
+  },
+  {
+    "hugoMoviesDirectors": {
+      "identity": 6,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "born": 1965,
+        "name": "Lana Wachowski"
+      }
+    }
+  },
+  {
+    "hugoMoviesDirectors": {
+      "identity": 5,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "born": 1967,
+        "name": "Lilly Wachowski"
+      }
+    }
+  }
+]

@@ -1,0 +1,24 @@
+1. match (movie:Movie) return movie
+2. match (hugo:Person {name: "Hugo Weaving"})-[:ACTED_IN]->(hugoMovies) return hugo, hugoMovies
+3. match (hugo:Person {name: "Hugo Weaving"})-[:ACTED_IN]->(hugoMovies)<-[:DIRECTED]-(hugoMoviesDirectors) return hugoMoviesDirectors
+4. match (hugo:Person {name: "Hugo Weaving"})-[:ACTED_IN]->(hugoMovies)<-[:ACTED_IN]-(hugoMoviesCoActors) return hugoMoviesCoActors
+5. match (movie:Movie)<-[:ACTED_IN]-(matrixActors)-[:ACTED_IN]->(matrixActorsMovies) where movie.title starts with "The Matrix" return matrixActorsMovies
+6. match (actor:Person)-[:ACTED_IN]->(movie:Movie) return actor, count(movie) order by count(movie) desc
+7. match (director:Person)-[:DIRECTED]->(movie:Movie)<-[:WROTE]-(writer:Person) where director = writer return director, writer, movie
+8. match (hugo:Person {name: "Hugo Weaving"})-[:ACTED_IN]->(movie:Movie)<-[:ACTED_IN]-(keanu:Person {name: "Keanu Reeves"}) return hugo, keanu, movie
+9. create (CaptainAmericaTheFirstAvenger:Movie {title:'Captain America: The First Avenger', released:2011})
+create (JoeJohnston:Person {name: 'Joe Johnston'})
+create (ChristopherMarkus:Person {name: 'Christopher Markus'})
+create (StephenMcFeely:Person {name: 'Stephen McFeely'})
+create (JoeSimon:Person {name: 'Joe Simon'})
+create (ChrisEvans:Person {name: 'Chris Evans'})
+create (SamuelLJackson:Person {name: 'Samuel L. Jackson'})
+create
+(JoeJohnston)-[:DIRECTED]->(CaptainAmericaTheFirstAvenger),
+(ChristopherMarkus)-[:WROTE]->(CaptainAmericaTheFirstAvenger),
+(StephenMcFeely)-[:WROTE]->(CaptainAmericaTheFirstAvenger),
+(JoeSimon)-[:WROTE]->(CaptainAmericaTheFirstAvenger),
+(ChrisEvans)-[:ACTED_IN]->(CaptainAmericaTheFirstAvenger),
+(SamuelLJackson)-[:ACTED_IN]->(CaptainAmericaTheFirstAvenger),
+(hugo:Person {name: 'Hugo Weaving'})-[:ACTED_IN]->(CaptainAmericaTheFirstAvenger)
+match (m:Movie {title:'Captain America: The First Avenger'})<-[:DIRECTED|:WROTE|:ACTED_IN]-(p:Person) return m, p
