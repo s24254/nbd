@@ -1,0 +1,16 @@
+1.
+curl -i -X PUT -H "Content-Type: application/json" -d '{"city": "Warszawa", "price": 1000000, "surroundings": ["school", "shop", "shopping_center"], "isAvailable": false}' http://127.0.0.1:8098/buckets/s24254/keys/w
+curl -i -X PUT -H "Content-Type: application/json" -d '{"city": "Poznań", "price": 700000, "surroundings": ["hospital", "shop", "park"], "isAvailable": true}' http://127.0.0.1:8098/buckets/s24254/keys/p
+curl -i -X PUT -H "Content-Type: application/json" -d '{"city": "Gdańsk", "price": 800000, "surroundings": ["hospital", "beach", "park"], "isAvailable": false}' http://127.0.0.1:8098/buckets/s24254/keys/g
+curl -i -X PUT -H "Content-Type: application/json" -d '{"city": "Kraków", "price": 600000, "surroundings": ["swimming_pool", "school", "park"], "isAvailable": true}' http://127.0.0.1:8098/buckets/s24254/keys/k
+curl -i -X PUT -H "Content-Type: application/json" -d '{"city": "Łódź", "price": 500000, "surroundings": ["university", "bar", "park"], "isAvailable": true}' http://127.0.0.1:8098/buckets/s24254/keys/l
+
+2. curl -i http://127.0.0.1:8098/buckets/s24254/keys/w
+3. curl -i -X PUT -H "Content-Type: application/json" -d '{"city": "Warszawa", "price": 1000000, "surroundings": ["school", "shop", "shopping_center"], "isAvailable": false, rooms: 3}' http://127.0.0.1:8098/buckets/s24254/keys/w
+4. curl -i -X PUT -H "Content-Type: application/json" -d '{"city": "Warszawa", "price": 1000000, "isAvailable": false, rooms: 3}' http://127.0.0.1:8098/buckets/s24254/keys/w
+5. curl -i -X PUT -H "Content-Type: application/json" -d '{"city": "Warszawa", "price": 1000000, "isAvailable": true, rooms: 3}' http://127.0.0.1:8098/buckets/s24254/keys/w
+6. curl -i -X DELETE http://127.0.0.1:8098/buckets/s24254/keys/l
+7. curl -i http://127.0.0.1:8098/buckets/s24254/keys/l
+8. curl -i -X POST -H "Content-Type: application/json" -d '{"city": "Wrocław", "price": 500000, "surroundings": ["university", "bar", "park"], "isAvailable": false}' http://127.0.0.1:8098/buckets/s24254/keys
+9. curl -i http://127.0.0.1:8098/buckets/s24254/keys/XRTGxoh23Bi4GTNpzhuKeG8pz0O
+10. curl -i -X DELETE http://127.0.0.1:8098/buckets/s24254/keys/XRTGxoh23Bi4GTNpzhuKeG8pz0O
