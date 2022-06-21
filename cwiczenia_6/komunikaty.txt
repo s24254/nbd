@@ -1,0 +1,12 @@
+ADD DOCUMENT
+w
+GET DOCUMENT
+{u'city': u'Warszawa', u'price': 1000000, u'isAvailable': False, u'surroundings': [u'school', u'shop', u'shopping_center']}
+UPDATE DOCUMENT
+w
+GET DOCUMENT
+{u'city': u'Warszawa', u'price': 1000000, u'isAvailable': True, u'surroundings': [u'school', u'shop', u'shopping_center']}
+DELETE DOCUMENT
+w
+GET DELETED DOCUMENT
+None
