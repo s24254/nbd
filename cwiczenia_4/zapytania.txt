@@ -1,0 +1,53 @@
+1. match path=shortestPath((t:town {name: "Darjeeling"})-[*]->(p:peak {name: "Sandakphu"})) return path
+2.
+match path=shortestPath((t:town {name: "Darjeeling"})-[*]->(p:peak {name: "Sandakphu"}))
+where all(r in relationships(path) where r.winter = "true")
+return path
+3.
+match path=shortestPath((t:town {name: "Darjeeling"})-[*]->(p:peak {name: "Sandakphu"}))
+return path, reduce(d=0, r IN relationships(path) | d + r.distance) as totalDistance
+ORDER BY totalDistance
+4. match (t:town {name: "Darjeeling"})-[:twowheeler * {summer: "true"}]->(place) return place
+5. match (f:Flight)-[:ORIGIN]->(a:Airport) return a, count(f) order by count(f)
+6.
+match path=(origin:Airport {name:"LAX"})-[:ORIGIN|:DESTINATION *..5]-(dest:Airport)
+with
+    path,
+    dest,
+    reduce(price=0, node in [n in nodes(path) where 'Flight' in labels(n)] | price + [(node)<-[:ASSIGN]-(t) | t.price][0]) AS totalPrice
+where dest.name <> "LAX" and type(head(relationships(path))) = 'ORIGIN' and totalPrice < 3000
+return dest, totalPrice
+order by totalPrice
+7.
+match path=(origin:Airport {name: 'LAX'})<-[:ORIGIN]-()-[:DESTINATION]->(dest:Airport {name: 'DAY'})
+with
+    path,
+    dest,
+    reduce(price=0, node in [n in nodes(path) where 'Flight' in labels(n)] | price + [(node)<-[:ASSIGN]-(t) | t.price][0]) AS totalPrice
+return path, totalPrice
+order by totalPrice
+8.
+match path=(origin:Airport {name: 'LAX'})<-[:ORIGIN]-()-[:DESTINATION]->(dest:Airport {name: 'DAY'})
+with
+    path,
+    dest,
+    reduce(price=0, node in [n in nodes(path) where 'Flight' in labels(n)] | price + [(node)<-[:ASSIGN]-(t) | t.price][0]) AS totalPrice
+return path, totalPrice
+order by totalPrice
+limit 1
+9.
+match (origin:Airport)<-[:ORIGIN]-(f:Flight)-[:DESTINATION]->(dest:Airport)
+with f, [origin.name, dest.name, f.airline] AS route
+return f.airline AS airline, count(distinct route)
+order by count(distinct route)
+10.
+match path=(origin:Airport)-[:ORIGIN|DESTINATION*4]-(dest:Airport)
+where origin <> dest
+with
+    path,
+    dest,
+    reduce(price=0, node in [n in nodes(path) where 'Flight' in labels(n)] | price + [(node)<-[:ASSIGN]-(t) | t.price][0]) AS totalPrice
+where type(head(relationships(path))) = 'ORIGIN'
+return path, totalPrice
+order by totalPrice
+limit 1
